@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To My Forever Bestie 💌</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&display=swap');
+
+        body {
+            font-family: 'Dancing Script', cursive;
+            background-color: #ffe6f2;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            position: relative;
+        }
+
+        /* Floating hearts animation */
+        @keyframes float-hearts {
+            0% { transform: translateY(0); opacity: 1; }
+            100% { transform: translateY(-100vh); opacity: 0; }
+        }
+
+        .heart {
+            position: absolute;
+            bottom: -10px;
+            color: red;
+            animation: float-hearts 6s linear infinite;
+            opacity: 0.8;
+        }
+
+        /* Envelope container */
+        .container {
+            position: relative;
+            cursor: pointer;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .container:hover {
+            transform: scale(1.05);
+        }
+
+        .envelope {
+            width: 320px;
+            height: 220px;
+            background-color: #ffebee;
+            position: relative;
+            border-radius: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .envelope::before {
+            content: "";
+            position: absolute;
+            width: 0;
+            height: 0;
+            border-left: 160px solid transparent;
+            border-right: 160px solid transparent;
+            border-bottom: 110px solid #ffcdd2;
+            top: -110px;
+            left: 0;
+        }
+
+        .heart-icon {
+            font-size: 60px;
+            color: red;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        /* Hidden letter */
+        .letter {
+            width: 370px;
+            background: white;
+            padding: 25px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0);
+            transition: transform 0.5s ease-in-out;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+            z-index: 2;
+        }
+
+        .letter.show {
+            transform: translate(-50%, -50%) scale(1);
+        }
+
+        h1 {
+            color: #ff4d79;
+            font-size: 28px;
+        }
+
+        p {
+            font-size: 20px;
+            line-height: 1.6;
+        }
+
+        /* Colorful text */
+        .pink { color: #ff0066; }
+        .purple { color: #800080; }
+        .blue { color: #0066cc; }
+        .red { color: #cc0000; }
+
+        .signature {
+            margin-top: 20px;
+            font-weight: bold;
+            color: #ff0066;
+            font-size: 22px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Floating Hearts Background -->
+    <script>
+        function createHearts() {
+            const numHearts = 10; // A balanced amount of hearts
+            for (let i = 0; i < numHearts; i++) {
+                let heart = document.createElement("div");
+                heart.classList.add("heart");
+                heart.innerHTML = "❤️";
+                heart.style.left = Math.random() * 100 + "vw";
+                heart.style.fontSize = Math.random() * 20 + 20 + "px"; // Random sizes for variety
+                heart.style.animationDuration = (Math.random() * 3 + 4) + "s";
+                document.body.appendChild(heart);
+                setTimeout(() => {
+                    heart.remove();
+                }, 6000);
+            }
+        }
+        setInterval(createHearts, 1200);
+    </script>
+
+    <!-- Envelope -->
+    <div class="container" onclick="openLetter()">
+        <div class="envelope">
+            <div class="heart-icon">❤️</div>
+        </div>
+    </div>
+
+    <!-- Letter -->
+    <div class="letter" id="letter">
+        <h1 class="red">💖 To My Forever Bestie 💖</h1>
+        <p class="pink"><b>My dearest bestie,</b></p>
+        
+        <p class="purple">From the moment we met in <b>intermediate</b>, you became my safe place, my happiness, my person. Even though college took us on different paths, our bond never changed. 💕</p>
+
+        <p class="blue">A year has passed since we last met, and I miss you more than words can say. Seeing others with their best friends makes me wish you were right here with me. But no matter the distance, you’ve never felt far. 💫</p>
+
+        <p class="red"><b>You are my forever best friend.</b> No matter what happens, I will never leave you—because that’s how special you are to me. ❤️</p>
+
+        <p class="signature"><b>Forever and always,</b><br>💞 Your Bestie 💞</p>
+    </div>
+
+    <script>
+        function openLetter() {
+            document.getElementById("letter").classList.add("show");
+        }
+    </script>
+
+</body>
+</html>
